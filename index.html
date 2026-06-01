@@ -15,8 +15,8 @@
         }
 
         :root {
-            --bg-color: #0a0a0a;
-            --card-bg: #121212;
+            --bg-color: #000000; /* Fond noir pur */
+            --card-bg: #0d0d0d; /* Très proche du noir pour la profondeur */
             --border-color: #262626;
             --text-primary: #ffffff;
             --text-secondary: #a3a3a3;
@@ -45,7 +45,7 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             font-family: 'Determination', monospace, sans-serif;
-            line-height: 24px; /* Fixé en pixels entiers */
+            line-height: 24px;
             padding: 40px 20px;
             display: flex;
             justify-content: center;
@@ -87,7 +87,7 @@
 
         .section-content, .project-card p {
             color: var(--text-secondary);
-            font-size: 16px; /* Taille fixe */
+            font-size: 16px;
         }
 
         .skills-grid {
@@ -200,23 +200,27 @@
             <div class="skills-grid">
                 <div class="skill-tag">HTML</div>
                 <div class="skill-tag">CSS</div>
-                <div class="skill-tag">ESS6</div>
+                <div class="skill-tag">ES6</div>
                 <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Gestion de base de données</div>
                 <div class="skill-tag">Github</div>
                 <div class="skill-tag">Machine learning</div>
                 <div class="skill-tag">Python</div>
                 <div class="skill-tag">C</div>
+                <div class="skill-tag">C++</div>
                 <div class="skill-tag">Assembleur</div>
                 <div class="skill-tag">Lua</div>
                 <div class="skill-tag">Rust</div>
                 <div class="skill-tag">Processing</div>
                 <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Gestion de projet</div>
             </div>
         </section>
 
         <section id="projects" class="portfolio-section">
             <h2>[03] Projets Récents</h2>
             <div class="projects-grid">
+
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-status">En cours</span>
@@ -226,7 +230,7 @@
                     <p>Création de mon portfolio personnel hébergé sur GitHub.</p>
                     <div class="project-tech">
                         <span>HTML5</span>
-                        <span>CSS3</span>
+                        <span>CSS</span>
                         <span>Git</span>
                     </div>
                     <a href="https://github.com/Evan-Reynaud/Evan-Reynaud.github.io" target="_blank" class="project-link">Voir le dépôt &rarr;</a>
@@ -235,16 +239,50 @@
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-status">Terminé</span>
+                        <span class="project-year">2026</span>
+                    </div>
+                    <h3>Analyse Yelp IA</h3>
+                    <p>Développement d'un système d'analyse intelligente des avis Yelp via l'IA.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>JavaScript</span>
+                        <span>Machine learning</span>
+                        <span>Gestion de base de données</span>
+                        <span>Gestion de projet</span>
+                    </div>
+                    <a href="#" class="project-link">Voir le dépôt &rarr;</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-status">Terminé</span>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <h3>Recommandations de séries TV</h3>
+                    <p>Moteur de recherche et de recommandations personnalisé pour des séries TV.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>JavaScript</span>
+                        <span>API</span>
+                        <span>Gestion de projet</span>
+                        <span>Gestion de base de données</span>
+                    </div>
+                    <a href="#" class="project-link">Voir le dépôt &rarr;</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-status">Terminé</span>
                         <span class="project-year">2023</span>
                     </div>
                     <h3>StockMeat</h3>
-                    <p>Conception et développement d'un moteur de jeu d'échecs basé sur un algorithme Minmax avec évaluation récursives des positions du plateau.</p>
+                    <p>Moteur de jeu d'échecs basé sur un algorithme Minmax avec évaluation récursives.</p>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>Minmax</span>
-                        <span>Algorithmique</span>
                         <span>C</span>
-                        <span>CSS</span>
                     </div>
                     <a href="https://github.com/Evan-Reynaud/stockmeat" target="_blank" class="project-link">Voir le dépôt &rarr;</a>
                 </div>
@@ -255,16 +293,16 @@
                         <span class="project-year">----</span>
                     </div>
                     <h3>Prochain Projet</h3>
-                    <p>En attente de votre prochaine idée brillante. Un projet de développement web, une application interactive, ou un jeu vidéo ?</p>
+                    <p>En attente de votre prochaine idée brillante.</p>
                     <div class="project-tech">
                         <span>JS</span>
                         <span>API</span>
-                        <span>?</span>
                     </div>
-                    <span class="project-link disabled">En attente d'idées</span>
+                    <span class="project-link disabled">En attente</span>
                 </div>
             </div>
         </section>
+
         <footer id="contact" class="portfolio-footer">
             <h2>[04] Me contacter</h2>
             <div class="contact-links">
