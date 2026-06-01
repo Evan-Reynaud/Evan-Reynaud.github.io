@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evan Reynaud | Portfolio</title>
     
-    <!-- Intégration directe du CSS pour éviter les erreurs de liaison -->
     <style>
         /* [01] DECLARATION DE LA POLICE CUSTOMISÉE */
         @font-face {
             font-family: 'Determination';
-            /* On utilise un chemin relatif. Attention à la casse exacte ! */
-            src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+            /* Correction du chemin : on pointe vers votre dossier "Polices" avec la bonne casse */
+            src: url('Polices/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
-            font-display: swap; /* Permet d'afficher un texte de secours le temps du chargement */
+            font-display: swap;
         }
 
         /* [02] CONFIGURATION DES VARIABLES DE DESIGN */
@@ -53,13 +52,13 @@
             min-height: 100vh;
         }
 
-        /* [04] STRUCTURE DU CONTENEUR */
+        /* STRUCTURE DU CONTENEUR */
         .container {
             max-width: 800px;
             width: 100%;
         }
 
-        /* [05] EN-TÊTE PRINCIPALE */
+        /* EN-TÊTE PRINCIPALE */
         .main-header {
             margin-bottom: 60px;
             border-bottom: 1px dashed var(--border-color);
@@ -81,7 +80,7 @@
             letter-spacing: 1px;
         }
 
-        /* [06] SECTIONS DU PORTFOLIO */
+        /* SECTIONS DU PORTFOLIO */
         .portfolio-section {
             margin-bottom: 60px;
         }
@@ -102,7 +101,7 @@
             font-size: 1.1rem;
         }
 
-        /* [07] GRILLE DE COMPETENCES (TAGS) */
+        /* GRILLE DE COMPETENCES (TAGS) */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -126,7 +125,7 @@
             box-shadow: 0 4px 12px rgba(0, 255, 102, 0.15);
         }
 
-        /* [08] GRILLE DES CARTES PROJETS */
+        /* GRILLE DES CARTES PROJETS */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -220,7 +219,7 @@
             cursor: not-allowed;
         }
 
-        /* [09] SECTION CONTACT & PIED DE PAGE */
+        /* SECTION CONTACT & PIED DE PAGE */
         .portfolio-footer {
             border-top: 1px dashed var(--border-color);
             padding-top: 40px;
@@ -278,6 +277,7 @@
             <p class="subtitle">> Développeur Web & Concepteur</p>
         </header>
 
+        <!-- À Propos -->
         <section id="about" class="portfolio-section">
             <h2>[01] À propos de moi</h2>
             <div class="section-content">
@@ -285,6 +285,7 @@
             </div>
         </section>
 
+        <!-- Compétences -->
         <section id="skills" class="portfolio-section">
             <h2>[02] Compétences</h2>
             <div class="skills-grid">
@@ -297,6 +298,7 @@
             </div>
         </section>
 
+        <!-- Projets -->
         <section id="projects" class="portfolio-section">
             <h2>[03] Projets Récents</h2>
             <div class="projects-grid">
@@ -336,6 +338,7 @@
             </div>
         </section>
 
+        <!-- Contact & Pied de page -->
         <footer id="contact" class="portfolio-footer">
             <h2>[04] Me contacter</h2>
             <p class="contact-text">Discutons de votre prochain projet ou collaborons ensemble !</p>
@@ -349,5 +352,19 @@
 
     </div>
 
+    <!-- Script d'analyse de la police pour diagnostiquer l'erreur en ligne -->
+    <script>
+        document.fonts.ready.then(function() {
+            // On vérifie si la police 'Determination' est correctement chargée par le navigateur
+            if (document.fonts.check('12px Determination')) {
+                console.log("✅ Diagnostic : La police 'Determination' s'est chargée avec succès !");
+            } else {
+                console.error("❌ Diagnostic : Échec de chargement de la police 'Determination'.");
+                console.warn("👉 Raison possible 1 : Le fichier 'DeterminationMonoWebRegular-Z5oq.ttf' n'a pas été envoyé sur GitHub.");
+                console.warn("👉 Raison possible 2 : Le fichier n'est pas exactement dans un dossier nommé 'fonts' (tout en minuscules).");
+                console.warn("👉 Raison possible 3 : Le nom de fichier exact sur votre disque ne correspond pas à la casse 'DeterminationMonoWebRegular-Z5oq.ttf'.");
+            }
+        });
+    </script>
 </body>
 </html>
