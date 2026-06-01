@@ -6,7 +6,6 @@
     <title>Evan Reynaud | Portfolio</title>
     
     <style>
-        /* [01] DECLARATION DE LA POLICE CUSTOMISÉE */
         @font-face {
             font-family: 'Determination';
             src: url('Polices/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
@@ -15,24 +14,27 @@
             font-display: swap;
         }
 
-        /* [02] CONFIGURATION DES VARIABLES DE DESIGN */
         :root {
             --bg-color: #0a0a0a;
             --card-bg: #121212;
             --border-color: #262626;
-            --border-hover: #ffffff;
             --text-primary: #ffffff;
             --text-secondary: #a3a3a3;
-            --accent-color: #fff200; /* Jaune rétro (Style point de sauvegarde) */
-            --accent-hover: #ffffff;
-            --font-custom: 'Determination', monospace, sans-serif;
+            --accent-color: #fff200;
         }
 
-        /* [03] STYLES DE BASE & REINITIALISATION */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            /* Rendu "Pixel-Perfect" agressif */
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: none;
+            font-smoothing: none;
+            text-rendering: optimizeSpeed;
+            font-variant-ligatures: none;
+            font-kerning: none;
+            image-rendering: pixelated;
         }
 
         html {
@@ -42,24 +44,19 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
-            font-family: var(--font-custom);
-            line-height: 1.6;
+            font-family: 'Determination', monospace, sans-serif;
+            line-height: 24px; /* Fixé en pixels entiers */
             padding: 40px 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            -webkit-font-smoothing: none;
-            -moz-osx-font-smoothing: none;
         }
 
-        /* STRUCTURE DU CONTENEUR */
         .container {
             max-width: 800px;
             width: 100%;
         }
 
-        /* EN-TÊTE PRINCIPALE */
         .main-header {
             margin-bottom: 60px;
             border-bottom: 1px dashed var(--border-color);
@@ -67,42 +64,32 @@
         }
 
         .glitch-title {
-            font-size: 3rem;
-            font-weight: normal;
-            letter-spacing: 2px;
+            font-size: 48px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             margin-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 19px;
             color: var(--accent-color);
-            letter-spacing: 1px;
         }
 
-        /* SECTIONS DU PORTFOLIO */
         .portfolio-section {
             margin-bottom: 60px;
         }
 
         .portfolio-section h2 {
-            font-size: 1.5rem;
-            font-weight: normal;
-            text-transform: uppercase;
-            color: var(--text-primary);
+            font-size: 24px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
             margin-bottom: 25px;
-            letter-spacing: 1px;
         }
 
-        .section-content {
+        .section-content, .project-card p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 16px; /* Taille fixe */
         }
 
-        /* GRILLE DE COMPETENCES (TAGS) */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -113,20 +100,10 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 1rem;
+            font-size: 14px;
             color: var(--text-secondary);
-            transition: all 0.2s ease;
         }
 
-        .skill-tag:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 242, 0, 0.25); /* Aura jaune #fff200 */
-        }
-
-        /* GRILLE DES CARTES PROJETS */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -134,26 +111,13 @@
         }
 
         @media (min-width: 600px) {
-            .projects-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .projects-grid { grid-template-columns: 1fr 1fr; }
         }
 
         .project-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
             padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover:not(.placeholder) {
-            border-color: var(--accent-color); /* Bordure jaune au survol */
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(255, 242, 0, 0.15); /* Aura jaune au survol */
         }
 
         .project-card.placeholder {
@@ -164,29 +128,14 @@
         .project-header {
             display: flex;
             justify-content: space-between;
-            font-size: 0.85rem;
+            font-size: 14px;
             color: var(--text-secondary);
             margin-bottom: 15px;
-            font-size: 14px;
         }
 
-        .project-status {
-            color: var(--accent-color);
-            text-transform: uppercase;
-        }
+        .project-status { color: var(--accent-color); text-transform: uppercase; }
 
-        .project-card h3 {
-            font-size: 1.3rem;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
+        .project-card h3 { font-size: 21px; margin-bottom: 10px; }
 
         .project-tech {
             display: flex;
@@ -196,26 +145,16 @@
         }
 
         .project-tech span {
-            font-size: 0.8rem;
+            font-size: 14px;
             background: rgba(255, 255, 255, 0.05);
             padding: 4px 8px;
-            border-radius: 3px;
             color: var(--text-secondary);
-            font-size: 14px;
         }
 
         .project-link {
             color: var(--accent-color);
             text-decoration: none;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.2s ease;
-        }
-
-        .project-link:hover {
-            color: var(--text-primary);
+            font-size: 16px;
         }
 
         .project-link.disabled {
@@ -223,7 +162,6 @@
             cursor: not-allowed;
         }
 
-        /* SECTION CONTACT & PIED DE PAGE */
         .portfolio-footer {
             border-top: 1px dashed var(--border-color);
             padding-top: 40px;
@@ -231,58 +169,25 @@
             text-align: center;
         }
 
-        .portfolio-footer h2 {
-            border-bottom: none;
-            margin-bottom: 15px;
-        }
-
-        .contact-text {
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
         .btn-contact {
             display: inline-block;
             padding: 12px 24px;
             border: 1px solid var(--border-color);
-            border-radius: 4px;
-            color: var(--text-primary);
             text-decoration: none;
-            transition: all 0.2s ease;
+            color: var(--text-primary);
         }
 
-        .btn-contact:hover {
-            background: var(--accent-color); /* Fond jaune au survol */
-            color: var(--bg-color); /* Texte noir sur le jaune */
-            border-color: var(--accent-color);
-            box-shadow: 0 0 15px rgba(255, 242, 0, 0.4); /* Halo jaune intense */
-        }
-
-        .copyright {
-            font-size: 0.85rem;
-            color: #404040;
-            font-size: 14px;
-        }
+        .copyright { font-size: 14px; color: #404040; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
         <header class="main-header">
             <h1 class="glitch-title">Evan Reynaud</h1>
             <p class="subtitle">> Etudiant en Administration, Gestion et Exploitation de Données</p>
         </header>
 
-        <!-- À Propos -->
         <section id="about" class="portfolio-section">
             <h2>[01] À propos de moi</h2>
             <div class="section-content">
@@ -290,7 +195,6 @@
             </div>
         </section>
 
-        <!-- Compétences -->
         <section id="skills" class="portfolio-section">
             <h2>[02] Compétences</h2>
             <div class="skills-grid">
@@ -299,12 +203,7 @@
                 <div class="skill-tag">ESS6</div>
                 <div class="skill-tag">JavaScript</div>
                 <div class="skill-tag">Github</div>
-                <div class="skill-tag">Responsive Design</div>
-                <div class="skill-tag">Gestion de projet</div>
-                <div class="skill-tag">Intégration Web</div>
-                <div class="skill-tag">UI/UX Minimaliste</div>
                 <div class="skill-tag">Machine learning</div>
-                <div class="skill-tag">Exploitation base de données</div>
                 <div class="skill-tag">Python</div>
                 <div class="skill-tag">C</div>
                 <div class="skill-tag">Assembleur</div>
@@ -312,16 +211,12 @@
                 <div class="skill-tag">Rust</div>
                 <div class="skill-tag">Processing</div>
                 <div class="skill-tag">SQL</div>
-                <div class="skill-tag">Algorithmique</div>
             </div>
         </section>
 
-        <!-- Projets -->
         <section id="projects" class="portfolio-section">
             <h2>[03] Projets Récents</h2>
             <div class="projects-grid">
-                
-                <!-- Projet 1 : Portfolio (2026) -->
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-status">En cours</span>
@@ -334,12 +229,9 @@
                         <span>CSS3</span>
                         <span>Git</span>
                     </div>
-                    <a href="https://github.com/Evan-Reynaud/Evan-Reynaud.github.io" target="_blank" class="project-link">
-                        Voir le dépôt <span>&rarr;</span>
-                    </a>
+                    <a href="https://github.com/Evan-Reynaud/Evan-Reynaud.github.io" target="_blank" class="project-link">Voir le dépôt &rarr;</a>
                 </div>
 
-                <!-- Projet 2 : StockMeat (2023) -->
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-status">Terminé</span>
@@ -353,16 +245,10 @@
                         <span>Algorithmique</span>
                         <span>C</span>
                         <span>CSS</span>
-                        <span>Git</span>
-                        <span>Gestion de projet</span>
-                        <span>UI/UX Minimaliste</span>
                     </div>
-                    <a href="https://github.com/Evan-Reynaud/stockmeat" target="_blank" class="project-link">
-                        Voir le dépôt <span>&rarr;</span>
-                    </a>
+                    <a href="https://github.com/Evan-Reynaud/stockmeat" target="_blank" class="project-link">Voir le dépôt &rarr;</a>
                 </div>
 
-                <!-- Projet 3 : Placeholder -->
                 <div class="project-card placeholder">
                     <div class="project-header">
                         <span class="project-status">Futur</span>
@@ -377,23 +263,15 @@
                     </div>
                     <span class="project-link disabled">En attente d'idées</span>
                 </div>
-
             </div>
         </section>
-
-        <!-- Contact & Pied de page -->
         <footer id="contact" class="portfolio-footer">
             <h2>[04] Me contacter</h2>
-            <p class="contact-text">Discutons de votre prochain projet ou collaborons ensemble !</p>
             <div class="contact-links">
                 <a href="mailto:votre-email@exemple.com" class="btn-contact">Envoyer un email</a>
-                <a href="https://linkedin.com/in/votre-profil" target="_blank" class="btn-contact">LinkedIn</a>
-                <a href="https://github.com/Evan-Reynaud" target="_blank" class="btn-contact">GitHub</a>
             </div>
-            <p class="copyright">&copy; 2026 Evan Reynaud. Tous droits réservés.</p>
+            <p class="copyright">&copy; 2026 Evan Reynaud.</p>
         </footer>
-
     </div>
-
 </body>
 </html>
