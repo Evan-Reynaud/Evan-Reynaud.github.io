@@ -49,6 +49,11 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            
+            /* [Nouveau] Rendre les polices pixel parfaitement nettes et brutes */
+            font-smooth: never;
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: none;
         }
 
         /* STRUCTURE DU CONTENEUR */
@@ -162,7 +167,7 @@
         .project-header {
             display: flex;
             justify-content: space-between;
-            font-size: 0.85rem;
+            font-size: 14px; /* Modifié : Taille minimale fixe pour la netteté de la police pixel */
             color: var(--text-secondary);
             margin-bottom: 15px;
         }
@@ -187,13 +192,12 @@
 
         .project-tech {
             display: flex;
-            flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 20px;
         }
 
         .project-tech span {
-            font-size: 0.8rem;
+            font-size: 14px; /* Modifié : Évite le flou sur les petits tags */
             background: rgba(255, 255, 255, 0.05);
             padding: 4px 8px;
             border-radius: 3px;
@@ -263,7 +267,7 @@
         }
 
         .copyright {
-            font-size: 0.85rem;
+            font-size: 14px; /* Modifié : Lisibilité du copyright */
             color: #404040;
         }
     </style>
@@ -307,7 +311,6 @@
                 <div class="skill-tag">Rust</div>
                 <div class="skill-tag">Processing</div>
                 <div class="skill-tag">SQL</div>
-                <div class="skill-tag">Algorithmique</div>
             </div>
         </section>
 
@@ -334,23 +337,18 @@
                     </a>
                 </div>
 
-                <!-- Projet 2 : Stockmeat (2023) -->
+                <!-- Projet 2 : Stockmeat (2024) -->
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-status">Terminé</span>
-                        <span class="project-year">2023</span>
+                        <span class="project-year">2024</span>
                     </div>
-                    <h3>Stockmeat</h3>
-                    <p>Conception et développement d'un moteur de jeu d'échecs basé sur un algorithme Minmax avec évaluation récursives des positions du plateau.</p>
+                    <h3>stockmeat</h3>
+                    <p>Conception et développement d'un moteur de jeu d'échecs basé sur un algorithme Minmax avec évaluation des positions du plateau.</p>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>Minmax</span>
                         <span>Algorithmique</span>
-                        <span>C</span>
-                        <span>CSS</span>
-                        <span>Git</span>
-                        <span>Gestion de projet</span>
-                        <span>UI/UX Minimaliste</span>
                     </div>
                     <a href="https://github.com/Evan-Reynaud/stockmeat" target="_blank" class="project-link">
                         Voir le dépôt <span>&rarr;</span>
