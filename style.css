@@ -1,28 +1,259 @@
+/* Déclaration de votre police personnalisée */
 @font-face {
-    /* Nous l'appelons 'Determination' ici... */
-    font-family: 'Determination'; 
+    font-family: 'Determination';
     src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-body {
-    background-color: #000000; 
-    color: #f5f5f5; 
-    font-family: 'Determination', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
+
+/* Variables de design pour une maintenance facile */
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #121212;
+    --border-color: #262626;
+    --border-hover: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --accent-color: #00ff66; /* Un vert néon rétro typé terminal */
+    --accent-hover: #ffffff;
+    --font-custom: 'Determination', -apple-system, BlinkMacSystemFont, sans-serif;
 }
-h1, h2, h3 {
-    color: #ffffff;
-    font-family: 'Determination', sans-serif;
+
+/* Réinitialisation de base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-custom);
+    line-height: 1.6;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* En-tête */
+.main-header {
+    margin-bottom: 60px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 30px;
+}
+
+.glitch-title {
+    font-size: 3rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     margin-bottom: 10px;
 }
-a {
-    color: #0076ff;
-    text-decoration: none;
-    transition: color 0.3s ease;
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    letter-spacing: 1px;
 }
-a:hover {
-    color: #ffffff;
+
+/* Style général des sections */
+.portfolio-section {
+    margin-bottom: 60px;
+}
+
+.portfolio-section h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.section-content {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Grille de compétences */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 102, 0.15);
+}
+
+/* Grille de projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Cartes projets */
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover:not(.placeholder) {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+.project-card.placeholder {
+    opacity: 0.5;
+    border-style: dashed;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.project-status {
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.project-tech {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-tech span {
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 3px;
+    color: var(--text-secondary);
+}
+
+.project-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover {
+    color: var(--text-primary);
+}
+
+.project-link.disabled {
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+/* Pied de page et Contact */
+.portfolio-footer {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 40px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.portfolio-footer h2 {
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+
+.contact-text {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.btn-contact {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-contact:hover {
+    background: var(--text-primary);
+    color: var(--bg-color);
+    border-color: var(--text-primary);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: #404040;
 }
