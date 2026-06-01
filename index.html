@@ -7,13 +7,17 @@
     
     <!-- Intégration directe du CSS pour éviter les erreurs de liaison -->
     <style>
+        /* [01] DECLARATION DE LA POLICE CUSTOMISÉE */
         @font-face {
             font-family: 'Determination';
+            /* On utilise un chemin relatif. Attention à la casse exacte ! */
             src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
+            font-display: swap; /* Permet d'afficher un texte de secours le temps du chargement */
         }
 
+        /* [02] CONFIGURATION DES VARIABLES DE DESIGN */
         :root {
             --bg-color: #0a0a0a;
             --card-bg: #121212;
@@ -23,9 +27,10 @@
             --text-secondary: #a3a3a3;
             --accent-color: #00ff66; /* Vert néon rétro terminal */
             --accent-hover: #ffffff;
-            --font-custom: 'Determination', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-custom: 'Determination', monospace, sans-serif;
         }
 
+        /* [03] STYLES DE BASE & REINITIALISATION */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -48,11 +53,13 @@
             min-height: 100vh;
         }
 
+        /* [04] STRUCTURE DU CONTENEUR */
         .container {
             max-width: 800px;
             width: 100%;
         }
 
+        /* [05] EN-TÊTE PRINCIPALE */
         .main-header {
             margin-bottom: 60px;
             border-bottom: 1px dashed var(--border-color);
@@ -74,6 +81,7 @@
             letter-spacing: 1px;
         }
 
+        /* [06] SECTIONS DU PORTFOLIO */
         .portfolio-section {
             margin-bottom: 60px;
         }
@@ -94,6 +102,7 @@
             font-size: 1.1rem;
         }
 
+        /* [07] GRILLE DE COMPETENCES (TAGS) */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -117,6 +126,7 @@
             box-shadow: 0 4px 12px rgba(0, 255, 102, 0.15);
         }
 
+        /* [08] GRILLE DES CARTES PROJETS */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -210,6 +220,7 @@
             cursor: not-allowed;
         }
 
+        /* [09] SECTION CONTACT & PIED DE PAGE */
         .portfolio-footer {
             border-top: 1px dashed var(--border-color);
             padding-top: 40px;
