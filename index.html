@@ -266,6 +266,50 @@
             font-size: 0.85rem;
             color: #404040;
         }
+
+        /* [04] MODULE DE DIAGNOSTIC DE POLICE (Retro & discret) */
+        #diag-box {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a0f0f;
+            border: 2px solid #ff3333;
+            border-radius: 6px;
+            padding: 15px;
+            max-width: 320px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #ff9999;
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #diag-box h4 {
+            color: #ff3333;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        #diag-box p {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        #diag-box a {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+
+        #diag-box .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            cursor: pointer;
+            color: #ff3333;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -352,17 +396,31 @@
 
     </div>
 
+    <!-- Boîte de diagnostic retro -->
+    <div id="diag-box">
+        <span class="close-btn" onclick="document.getElementById('diag-box').style.display='none'">×</span>
+        <h4>[!] Erreur de Police</h4>
+        <p>Le navigateur n'a pas pu télécharger votre police customisée depuis GitHub.</p>
+        <p>👉 Vérifiez si ce lien direct fonctionne :<br>
+        <a id="font-test-link" href="#" target="_blank">Tester l'accès au fichier .ttf</a></p>
+        <p>Si le lien ci-dessus renvoie une page "404 Not Found", c'est que votre fichier de police n'a pas été envoyé sur GitHub.</p>
+    </div>
+
     <!-- Script d'analyse de la police pour diagnostiquer l'erreur en ligne -->
     <script>
+        // On prépare le lien de test dynamique vers votre fichier TTF sur GitHub
+        const currentOrigin = window.location.origin;
+        const fontUrl = currentOrigin + "/Polices/DeterminationMonoWebRegular-Z5oq.ttf";
+        document.getElementById('font-test-link').href = fontUrl;
+
         document.fonts.ready.then(function() {
             // On vérifie si la police 'Determination' est correctement chargée par le navigateur
             if (document.fonts.check('12px Determination')) {
                 console.log("✅ Diagnostic : La police 'Determination' s'est chargée avec succès !");
             } else {
                 console.error("❌ Diagnostic : Échec de chargement de la police 'Determination'.");
-                console.warn("👉 Raison possible 1 : Le fichier 'DeterminationMonoWebRegular-Z5oq.ttf' n'a pas été envoyé sur GitHub.");
-                console.warn("👉 Raison possible 2 : Le fichier n'est pas exactement dans un dossier nommé 'fonts' (tout en minuscules).");
-                console.warn("👉 Raison possible 3 : Le nom de fichier exact sur votre disque ne correspond pas à la casse 'DeterminationMonoWebRegular-Z5oq.ttf'.");
+                // On affiche la boîte de diagnostic rouge
+                document.getElementById('diag-box').style.display = 'block';
             }
         });
     </script>
