@@ -9,7 +9,6 @@
         /* [01] DECLARATION DE LA POLICE CUSTOMISÉE */
         @font-face {
             font-family: 'Determination';
-            /* Correction du chemin : on pointe vers votre dossier "Polices" avec la bonne casse */
             src: url('Polices/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
@@ -24,7 +23,7 @@
             --border-hover: #ffffff;
             --text-primary: #ffffff;
             --text-secondary: #a3a3a3;
-            --accent-color: #00ff66; /* Vert néon rétro terminal */
+            --accent-color: #fff200; /* Jaune rétro (Style point de sauvegarde) */
             --accent-hover: #ffffff;
             --font-custom: 'Determination', monospace, sans-serif;
         }
@@ -122,7 +121,7 @@
             border-color: var(--accent-color);
             color: var(--accent-color);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 255, 102, 0.15);
+            box-shadow: 0 4px 12px rgba(255, 242, 0, 0.25); /* Aura jaune #fff200 */
         }
 
         /* GRILLE DES CARTES PROJETS */
@@ -150,9 +149,9 @@
         }
 
         .project-card:hover:not(.placeholder) {
-            border-color: var(--border-hover);
+            border-color: var(--accent-color); /* Bordure jaune au survol */
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 20px rgba(255, 242, 0, 0.15); /* Aura jaune au survol */
         }
 
         .project-card.placeholder {
@@ -256,59 +255,15 @@
         }
 
         .btn-contact:hover {
-            background: var(--text-primary);
-            color: var(--bg-color);
-            border-color: var(--text-primary);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            background: var(--accent-color); /* Fond jaune au survol */
+            color: var(--bg-color); /* Texte noir sur le jaune */
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 242, 0, 0.4); /* Halo jaune intense */
         }
 
         .copyright {
             font-size: 0.85rem;
             color: #404040;
-        }
-
-        /* [04] MODULE DE DIAGNOSTIC DE POLICE (Retro & discret) */
-        #diag-box {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #1a0f0f;
-            border: 2px solid #ff3333;
-            border-radius: 6px;
-            padding: 15px;
-            max-width: 320px;
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: #ff9999;
-            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.2);
-            z-index: 1000;
-        }
-
-        #diag-box h4 {
-            color: #ff3333;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            font-size: 0.95rem;
-        }
-
-        #diag-box p {
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        #diag-box a {
-            color: #ffcc00;
-            text-decoration: underline;
-        }
-
-        #diag-box .close-btn {
-            position: absolute;
-            top: 5px;
-            right: 8px;
-            cursor: pointer;
-            color: #ff3333;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -396,33 +351,5 @@
 
     </div>
 
-    <!-- Boîte de diagnostic retro -->
-    <div id="diag-box">
-        <span class="close-btn" onclick="document.getElementById('diag-box').style.display='none'">×</span>
-        <h4>[!] Erreur de Police</h4>
-        <p>Le navigateur n'a pas pu télécharger votre police customisée depuis GitHub.</p>
-        <p>👉 Vérifiez si ce lien direct fonctionne :<br>
-        <a id="font-test-link" href="#" target="_blank">Tester l'accès au fichier .ttf</a></p>
-        <p>Si le lien ci-dessus renvoie une page "404 Not Found", c'est que votre fichier de police n'a pas été envoyé sur GitHub.</p>
-    </div>
-
-    <!-- Script d'analyse de la police pour diagnostiquer l'erreur en ligne -->
-    <script>
-        // On prépare le lien de test dynamique vers votre fichier TTF sur GitHub
-        const currentOrigin = window.location.origin;
-        const fontUrl = currentOrigin + "/Polices/DeterminationMonoWebRegular-Z5oq.ttf";
-        document.getElementById('font-test-link').href = fontUrl;
-
-        document.fonts.ready.then(function() {
-            // On vérifie si la police 'Determination' est correctement chargée par le navigateur
-            if (document.fonts.check('12px Determination')) {
-                console.log("✅ Diagnostic : La police 'Determination' s'est chargée avec succès !");
-            } else {
-                console.error("❌ Diagnostic : Échec de chargement de la police 'Determination'.");
-                // On affiche la boîte de diagnostic rouge
-                document.getElementById('diag-box').style.display = 'block';
-            }
-        });
-    </script>
 </body>
 </html>
