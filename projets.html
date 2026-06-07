@@ -5,151 +5,251 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evan Reynaud | Projets</title>
     <style>
+        @font-face {
+            font-family: 'Determination';
+            src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root { 
             --bg-color: #000000; 
-            --card-bg: #0d0d0d; 
-            --border-color: #262626; 
+            --card-bg: #000000; 
+            --border-color: #ffffff; 
             --text-primary: #ffffff; 
             --text-secondary: #a3a3a3; 
             --accent-color: #fff200; 
+            --font-custom: 'Determination', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-primary); 
+            font-family: var(--font-custom); 
+            padding-top: 120px; 
+            display: flex; 
+            justify-content: center; 
+            min-height: 100vh; 
+        }
+
+        .container { max-width: 800px; width: 100%; padding: 20px; }
+
+        .navbar { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            background: rgba(0, 0, 0, 0.9); 
+            border-bottom: 2px solid var(--border-color); 
+            padding: 25px; 
+            display: flex; justify-content: center; gap: 40px; 
+            z-index: 1000;
+            backdrop-filter: blur(5px);
         }
         
-        body { background-color: var(--bg-color); color: var(--text-primary); font-family: monospace; padding-top: 100px; display: flex; justify-content: center; }
-        .container { max-width: 800px; width: 100%; padding: 20px; }
-        
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--bg-color); border-bottom: 1px solid var(--border-color); padding: 20px; display: flex; justify-content: center; gap: 20px; z-index: 1000; }
-        .navbar a { color: var(--text-secondary); text-decoration: none; font-size: 16px; text-transform: uppercase; }
+        .navbar a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-family: var(--font-custom);
+            transition: all 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
 
-        /* STRUCTURE TIMELINE */
-        .timeline { position: relative; margin-top: 40px; padding-left: 100px; }
-        
-        /* La ligne continue */
-        .timeline::before {
+        .navbar a:hover { 
+            color: var(--accent-color); 
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h2 { margin-bottom: 40px; font-size: 24px; color: var(--text-primary); }
+
+        .timeline-container { 
+            display: grid; 
+            grid-template-columns: 80px 40px 1fr; 
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .timeline-container::before {
             content: '';
             position: absolute;
-            left: 80px; /* Positionnée pour aligner avec les points */
+            left: 100px; 
             top: 0;
             bottom: 0;
             width: 2px;
             background: var(--border-color);
-            z-index: 0;
         }
 
-        .project-row { position: relative; margin-bottom: 40px; }
-        
-        /* Conteneur de la date et du point, à gauche de la ligne */
-        .date-dot {
-            position: absolute;
-            left: -100px; /* Aligné à gauche de la ligne */
-            top: 20px;
-            width: 90px;
-            text-align: right;
-            padding-right: 20px;
-            color: var(--accent-color);
-            font-size: 14px;
+        /* La classe timeline-row utilise display: contents pour s'intégrer au grid parent */
+        .timeline-row { display: contents; }
+
+        .year { text-align: right; padding-top: 18px; color: var(--accent-color); font-size: 14px; z-index: 2; }
+
+        .dot-container { position: relative; display: flex; justify-content: center; z-index: 2; }
+        .dot { 
+            width: 12px; height: 12px; background: var(--accent-color); 
+            border-radius: 50%; margin-top: 20px; 
         }
 
-        .dot {
-            position: absolute;
-            left: -85px; /* Sur la ligne */
-            top: 22px;
-            width: 12px;
-            height: 12px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            z-index: 1;
-        }
-
+        .project-wrapper { margin-bottom: 0; }
         .project-card { 
             background-color: var(--card-bg); 
-            border: 1px solid var(--border-color); 
+            border: 2px solid var(--border-color); 
             padding: 24px; 
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; 
+            margin-bottom: 10px;
         }
         .project-card:hover { border-color: var(--accent-color); }
-        .project-card h3 { margin-bottom: 10px; color: var(--text-primary); }
-        .project-card p { color: var(--text-secondary); }
 
-        /* Flèche centrée sous la carte */
-        .arrow-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tech-tag { 
+            border: 1px solid var(--border-color); 
+            color: var(--text-secondary); 
+            padding: 5px 12px; 
+            font-size: 12px; 
+            text-decoration: none; 
+            transition: all 0.2s;
+        }
+        .tech-tag:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
+        .arrow-container {
+            grid-column: 3;
+            text-align: center;
             color: var(--accent-color);
             font-size: 20px;
-            margin: -20px 0 20px 0;
+            padding: 5px 0 25px 0;
         }
-
     </style>
 </head>
 <body>
     <nav class="navbar">
         <a href="index.html">À propos</a>
-        <a href="skills.html">Compétences</a>
+        <a href="competences.html">Compétences</a>
         <a href="projets.html">Projets</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <div class="container">
-        <h2 style="margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">[03] Chronologie des projets</h2>
+        <h2 id="page-title">[03] CHRONOLOGIE DES PROJETS</h2>
         
-        <div class="timeline">
+        <div class="timeline-container">
             
             <!-- Projet 1 -->
-            <div class="project-row">
-                <div class="date-dot">2023</div>
-                <div class="dot"></div>
-                <div class="project-card">
-                    <h3>StockMeat</h3>
-                    <p>Moteur de jeu d'échecs basé sur un algorithme Minmax.</p>
+            <div class="timeline-row" data-tags="C,C++,Python,Gestion de projet,JavaScript,Github">
+                <div class="year">2023</div>
+                <div class="dot-container"><div class="dot"></div></div>
+                <div class="project-wrapper">
+                    <div class="project-card">
+                        <h3>StockMeat</h3>
+                        <p>Moteur de jeu d'échecs.</p>
+                        <div class="tech-tags">
+                            <a href="competences.html" class="tech-tag">C</a>
+                            <a href="competences.html" class="tech-tag">C++</a>
+                            <a href="competences.html" class="tech-tag">Python</a>
+                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
+                            <a href="competences.html" class="tech-tag">JavaScript</a>
+                            <a href="competences.html" class="tech-tag">Github</a>
+                        </div>
+                    </div>
                 </div>
+                <div class="arrow-container">↓</div>
             </div>
-            <div class="arrow-wrapper">↓</div>
 
             <!-- Projet 2 -->
-            <div class="project-row">
-                <div class="date-dot">2025</div>
-                <div class="dot"></div>
-                <div class="project-card">
-                    <h3>Séries TV AI</h3>
-                    <p>Moteur de recherche et recommandations pour séries TV.</p>
+            <div class="timeline-row" data-tags="Python,Flask,JavaScript,Gestion de base de données,API,Gestion de projet">
+                <div class="year">2025</div>
+                <div class="dot-container"><div class="dot"></div></div>
+                <div class="project-wrapper">
+                    <div class="project-card">
+                        <h3>Recommandations de séries TV</h3>
+                        <p>Moteur de recherche et de recommandations personnalisé pour des séries TV.</p>
+                        <div class="tech-tags">
+                            <a href="competences.html" class="tech-tag">Python</a>
+                            <a href="competences.html" class="tech-tag">Flask</a>
+                            <a href="competences.html" class="tech-tag">JavaScript</a>
+                            <a href="competences.html" class="tech-tag">Gestion de base de données</a>
+                            <a href="competences.html" class="tech-tag">API</a>
+                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
+                        </div>
+                    </div>
                 </div>
+                <div class="arrow-container">↓</div>
             </div>
-            <div class="arrow-wrapper">↓</div>
 
             <!-- Projet 3 -->
-            <div class="project-row">
-                <div class="date-dot">2026</div>
-                <div class="dot"></div>
-                <div class="project-card">
-                    <h3>Analyse Yelp IA</h3>
-                    <p>Analyse intelligente d'avis clients avec IA.</p>
+            <div class="timeline-row" data-tags="Python,Flask,JavaScript,Machine learning,Gestion de base de données,SQL,Gestion de projet">
+                <div class="year">2026</div>
+                <div class="dot-container"><div class="dot"></div></div>
+                <div class="project-wrapper">
+                    <div class="project-card">
+                        <h3>Analyse Yelp IA</h3>
+                        <p>Développement d'un système d'analyse intelligente des avis Yelp via l'IA.</p>
+                        <div class="tech-tags">
+                            <a href="competences.html" class="tech-tag">Python</a>
+                            <a href="competences.html" class="tech-tag">Flask</a>
+                            <a href="competences.html" class="tech-tag">JavaScript</a>
+                            <a href="competences.html" class="tech-tag">Machine learning</a>
+                            <a href="competences.html" class="tech-tag">Gestion de base de données</a>
+                            <a href="competences.html" class="tech-tag">SQL</a>
+                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
+                        </div>
+                    </div>
                 </div>
+                <div class="arrow-container">↓</div>
             </div>
-            <div class="arrow-wrapper">↓</div>
 
             <!-- Projet 4 -->
-            <div class="project-row">
-                <div class="date-dot">2026</div>
-                <div class="dot"></div>
-                <div class="project-card">
-                    <h3>Portfolio</h3>
-                    <p>Site web personnel déployé sur GitHub.</p>
+            <div class="timeline-row" data-tags="HTML,CSS,JavaScript,GitHub,Gestion de projet">
+                <div class="year">2026</div>
+                <div class="dot-container"><div class="dot"></div></div>
+                <div class="project-wrapper">
+                    <div class="project-card">
+                        <h3>Mon Site Portfolio</h3>
+                        <p>Création de mon portfolio personnel hébergé sur GitHub.</p>
+                        <div class="tech-tags">
+                            <a href="competences.html" class="tech-tag">HTML</a>
+                            <a href="competences.html" class="tech-tag">CSS</a>
+                            <a href="competences.html" class="tech-tag">JavaScript</a>
+                            <a href="competences.html" class="tech-tag">GitHub</a>
+                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
+                        </div>
+                    </div>
                 </div>
+                <div class="arrow-container">↓</div>
             </div>
-            <div class="arrow-wrapper">↓</div>
 
             <!-- Projet 5 -->
-            <div class="project-row">
-                <div class="date-dot">----</div>
-                <div class="dot"></div>
-                <div class="project-card">
-                    <h3>Projets futurs</h3>
-                    <p>Encore à venir !</p>
+            <div class="timeline-row">
+                <div class="year">----</div>
+                <div class="dot-container"><div class="dot"></div></div>
+                <div class="project-wrapper">
+                    <div class="project-card">
+                        <h3>Projets futurs</h3>
+                        <p>Encore à venir !</p>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filterTag = urlParams.get('tag');
+
+            if (filterTag) {
+                document.getElementById('page-title').innerText = `[03] PROJETS - FILTRÉS PAR : ${filterTag.toUpperCase()}`;
+
+                document.querySelectorAll('.timeline-row').forEach(row => {
+                    const tags = row.getAttribute('data-tags');
+                    if (tags && !tags.includes(filterTag)) {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

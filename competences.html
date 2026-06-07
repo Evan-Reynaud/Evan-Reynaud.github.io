@@ -5,16 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evan Reynaud | Compétences</title>
     <style>
-        :root { --bg-color: #000000; --card-bg: #0d0d0d; --border-color: #262626; --text-primary: #ffffff; --text-secondary: #a3a3a3; --accent-color: #fff200; }
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: none; image-rendering: pixelated; }
-        body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Determination', monospace, sans-serif; padding-top: 80px; display: flex; justify-content: center; min-height: 100vh; }
+        @font-face {
+            font-family: 'Determination';
+            src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root { 
+            --bg-color: #000000; 
+            --border-color: #ffffff; 
+            --text-primary: #ffffff; 
+            --text-secondary: #a3a3a3; 
+            --accent-color: #fff200; 
+            --font-custom: 'Determination', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-primary); 
+            font-family: var(--font-custom); 
+            padding-top: 120px; 
+            display: flex; 
+            justify-content: center; 
+            min-height: 100vh; 
+        }
+
         .container { max-width: 800px; width: 100%; padding: 20px; }
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--bg-color); border-bottom: 1px solid var(--border-color); padding: 20px; display: flex; justify-content: center; gap: 20px; z-index: 1000; }
-        .navbar a { color: var(--text-secondary); text-decoration: none; font-size: 16px; text-transform: uppercase; }
-        .navbar a:hover { color: var(--accent-color); }
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-        .skill-tag { background: var(--card-bg); border: 1px solid var(--border-color); padding: 8px 16px; font-size: 14px; color: var(--text-secondary); }
-        .portfolio-section h2 { font-size: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; }
+
+        .navbar { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            background: rgba(0, 0, 0, 0.9); 
+            border-bottom: 2px solid var(--border-color); 
+            padding: 25px; 
+            display: flex; justify-content: center; gap: 40px; 
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .navbar a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-family: var(--font-custom);
+            transition: all 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar a:hover { 
+            color: var(--accent-color); 
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h2 { margin-bottom: 40px; font-size: 24px; color: var(--text-primary); }
+
+        .category-section { margin-bottom: 40px; }
+        
+        .category-title { 
+            font-size: 18px; 
+            margin-bottom: 25px; 
+            color: var(--text-primary); 
+            letter-spacing: 1px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: inline-block;
+        }
+
+        .skills-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+        }
+
+        .skill-btn {
+            display: inline-block;
+            background-color: var(--bg-color);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 20px;
+            font-family: var(--font-custom);
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .skill-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
     </style>
 </head>
 <body>
@@ -24,27 +107,45 @@
         <a href="projets.html">Projets</a>
         <a href="contact.html">Contact</a>
     </nav>
-    <section id="skills" class="portfolio-section">
-            <h2>[02] Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">HTML</div>
-                <div class="skill-tag">CSS</div>
-                <div class="skill-tag">ES6</div>
-                <div class="skill-tag">JavaScript</div>
-                <div class="skill-tag">Gestion de base de données</div>
-                <div class="skill-tag">Github</div>
-                <div class="skill-tag">Machine learning</div>
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">C</div>
-                <div class="skill-tag">C++</div>
-                <div class="skill-tag">Assembleur</div>
-                <div class="skill-tag">Lua</div>
-                <div class="skill-tag">Rust</div>
-                <div class="skill-tag">Processing</div>
-                <div class="skill-tag">SQL</div>
-                <div class="skill-tag">API</div>
-                <div class="skill-tag">Gestion de projet</div>
+
+    <div class="container">
+        <section>
+            <h2>[02] MES COMPÉTENCES</h2>
+            
+            <div class="category-section">
+                <div class="category-title">LANGAGES</div>
+                <div class="skills-grid">
+                    <a href="projets.html?tag=Python" class="skill-btn">Python</a>
+                    <a href="projets.html?tag=C" class="skill-btn">C</a>
+                    <a href="projets.html?tag=C++" class="skill-btn">C++</a>
+                    <a href="projets.html?tag=Rust" class="skill-btn">Rust</a>
+                    <a href="projets.html?tag=Lua" class="skill-btn">Lua</a>
+                    <a href="projets.html?tag=Assembleur" class="skill-btn">Assembleur</a>
+                    <a href="projets.html?tag=JavaScript" class="skill-btn">JavaScript (ES6)</a>
+                    <a href="projets.html?tag=Processing" class="skill-btn">Processing</a>
+                </div>
+            </div>
+            
+            <div class="category-section">
+                <div class="category-title">WEB & DÉVELOPPEMENT</div>
+                <div class="skills-grid">
+                    <a href="projets.html?tag=HTML" class="skill-btn">HTML</a>
+                    <a href="projets.html?tag=CSS" class="skill-btn">CSS</a>
+                    <a href="projets.html?tag=API" class="skill-btn">API</a>
+                </div>
+            </div>
+            
+            <div class="category-section">
+                <div class="category-title">DATA, IA & OUTILS</div>
+                <div class="skills-grid">
+                    <a href="projets.html?tag=SQL" class="skill-btn">SQL</a>
+                    <a href="projets.html?tag=Base de données" class="skill-btn">Gestion de base de données</a>
+                    <a href="projets.html?tag=Machine learning" class="skill-btn">Machine learning</a>
+                    <a href="projets.html?tag=Github" class="skill-btn">Github</a>
+                    <a href="projets.html?tag=Gestion de projet" class="skill-btn">Gestion de projet</a>
+                </div>
             </div>
         </section>
+    </div>
 </body>
 </html>

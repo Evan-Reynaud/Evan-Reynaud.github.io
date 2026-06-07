@@ -5,12 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evan Reynaud | Contact</title>
     <style>
-        :root { --bg-color: #000000; --card-bg: #0d0d0d; --border-color: #262626; --text-primary: #ffffff; --text-secondary: #a3a3a3; --accent-color: #fff200; }
-        body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Determination', monospace, sans-serif; padding-top: 80px; display: flex; justify-content: center; min-height: 100vh; }
-        .container { max-width: 800px; width: 100%; padding: 20px; }
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--bg-color); border-bottom: 1px solid var(--border-color); padding: 20px; display: flex; justify-content: center; gap: 20px; z-index: 1000; }
-        .navbar a { color: var(--text-secondary); text-decoration: none; font-size: 16px; text-transform: uppercase; }
-        .btn-contact { display: inline-block; padding: 12px 24px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); }
+        @font-face {
+            font-family: 'Determination';
+            src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+        }
+
+        :root { 
+            --bg-color: #000000; 
+            --border-color: #ffffff; 
+            --text-primary: #ffffff; 
+            --accent-color: #fff200; 
+            --font-custom: 'Determination', monospace;
+        }
+
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-primary); 
+            font-family: var(--font-custom); 
+            padding-top: 120px; 
+            display: flex; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0;
+        }
+
+        .container { max-width: 600px; width: 100%; padding: 20px; }
+
+        .navbar { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            background: rgba(0, 0, 0, 0.9); 
+            border-bottom: 2px solid var(--border-color); 
+            padding: 25px; 
+            display: flex; justify-content: center; gap: 40px; 
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .navbar a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-family: var(--font-custom);
+            transition: all 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar a:hover { 
+            color: var(--accent-color); 
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .btn-retro {
+            display: block;
+            width: 100%;
+            background-color: var(--bg-color);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 25px;
+            margin-bottom: 25px;
+            text-decoration: none;
+            font-family: var(--font-custom);
+            font-size: 20px;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .btn-retro:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+
+        h2 { margin-bottom: 40px; font-size: 24px; }
     </style>
 </head>
 <body>
@@ -20,10 +88,22 @@
         <a href="projets.html">Projets</a>
         <a href="contact.html">Contact</a>
     </nav>
+
     <div class="container">
-        <section class="portfolio-section">
-            <h2>[04] Me contacter</h2>
-            <a href="mailto:votre-email@exemple.com" class="btn-contact">Envoyer un email</a>
+        <section>
+            <h2>[04] ME CONTACTER</h2>
+            
+            <a href="mailto:mon.email@ex.com" class="btn-retro">
+                mon.email@ex.com
+            </a>
+            
+            <a href="https://www.linkedin.com/in/profil" target="_blank" class="btn-retro">
+                linkedin.com/in/profil
+            </a>
+            
+            <a href="tel:+33600000000" class="btn-retro">
+                +33 6 00 00 00 00
+            </a>
         </section>
     </div>
 </body>
