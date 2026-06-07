@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evan Reynaud | Projets</title>
+    <style>
+        :root { 
+            --bg-color: #000000; 
+            --card-bg: #0d0d0d; 
+            --border-color: #262626; 
+            --text-primary: #ffffff; 
+            --text-secondary: #a3a3a3; 
+            --accent-color: #fff200; 
+        }
+        
+        body { background-color: var(--bg-color); color: var(--text-primary); font-family: monospace; padding-top: 100px; display: flex; justify-content: center; }
+        .container { max-width: 800px; width: 100%; padding: 20px; }
+        
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--bg-color); border-bottom: 1px solid var(--border-color); padding: 20px; display: flex; justify-content: center; gap: 20px; z-index: 1000; }
+        .navbar a { color: var(--text-secondary); text-decoration: none; font-size: 16px; text-transform: uppercase; }
+
+        /* STRUCTURE TIMELINE */
+        .timeline { position: relative; margin-top: 40px; padding-left: 100px; }
+        
+        /* La ligne continue */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 80px; /* Positionnée pour aligner avec les points */
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+            z-index: 0;
+        }
+
+        .project-row { position: relative; margin-bottom: 40px; }
+        
+        /* Conteneur de la date et du point, à gauche de la ligne */
+        .date-dot {
+            position: absolute;
+            left: -100px; /* Aligné à gauche de la ligne */
+            top: 20px;
+            width: 90px;
+            text-align: right;
+            padding-right: 20px;
+            color: var(--accent-color);
+            font-size: 14px;
+        }
+
+        .dot {
+            position: absolute;
+            left: -85px; /* Sur la ligne */
+            top: 22px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .project-card { 
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            padding: 24px; 
+            transition: all 0.3s ease;
+        }
+        .project-card:hover { border-color: var(--accent-color); }
+        .project-card h3 { margin-bottom: 10px; color: var(--text-primary); }
+        .project-card p { color: var(--text-secondary); }
+
+        /* Flèche centrée sous la carte */
+        .arrow-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 20px;
+            margin: -20px 0 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">À propos</a>
+        <a href="skills.html">Compétences</a>
+        <a href="projets.html">Projets</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2 style="margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">[03] Chronologie des projets</h2>
+        
+        <div class="timeline">
+            
+            <!-- Projet 1 -->
+            <div class="project-row">
+                <div class="date-dot">2023</div>
+                <div class="dot"></div>
+                <div class="project-card">
+                    <h3>StockMeat</h3>
+                    <p>Moteur de jeu d'échecs basé sur un algorithme Minmax.</p>
+                </div>
+            </div>
+            <div class="arrow-wrapper">↓</div>
+
+            <!-- Projet 2 -->
+            <div class="project-row">
+                <div class="date-dot">2025</div>
+                <div class="dot"></div>
+                <div class="project-card">
+                    <h3>Séries TV AI</h3>
+                    <p>Moteur de recherche et recommandations pour séries TV.</p>
+                </div>
+            </div>
+            <div class="arrow-wrapper">↓</div>
+
+            <!-- Projet 3 -->
+            <div class="project-row">
+                <div class="date-dot">2026</div>
+                <div class="dot"></div>
+                <div class="project-card">
+                    <h3>Analyse Yelp IA</h3>
+                    <p>Analyse intelligente d'avis clients avec IA.</p>
+                </div>
+            </div>
+            <div class="arrow-wrapper">↓</div>
+
+            <!-- Projet 4 -->
+            <div class="project-row">
+                <div class="date-dot">2026</div>
+                <div class="dot"></div>
+                <div class="project-card">
+                    <h3>Portfolio</h3>
+                    <p>Site web personnel déployé sur GitHub.</p>
+                </div>
+            </div>
+            <div class="arrow-wrapper">↓</div>
+
+            <!-- Projet 5 -->
+            <div class="project-row">
+                <div class="date-dot">----</div>
+                <div class="dot"></div>
+                <div class="project-card">
+                    <h3>Projets futurs</h3>
+                    <p>Encore à venir !</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
