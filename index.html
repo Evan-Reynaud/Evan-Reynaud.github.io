@@ -177,6 +177,18 @@
             color: var(--text-primary);
         }
 
+        .profile-container {
+        margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;       /* Largeur fixe */
+            height: 150px;      /* Hauteur fixe pour garder un carré */
+            border: 2px solid var(--border-color); /* Bordure rétro */
+            image-rendering: pixelated; /* Garde la netteté des pixels */
+            display: block;
+        }
+
         .copyright { font-size: 14px; color: #404040; margin-top: 40px; }
     </style>
 </head>
@@ -191,6 +203,9 @@
         <section id="about" class="portfolio-section">
             <h2>[01] À propos de moi</h2>
             <div class="section-content">
+                <div class="profile-container">
+                    <img src="Images/Poulet.jpg" alt="Photo de profil" class="profile-img">
+                </div>
                 <p>Texte de blabla incroyablement original.</p>
             </div>
         </section>
