@@ -16,7 +16,10 @@
     --text-secondary: #a3a3a3;
     --accent-color: #00ff66; /* Un vert néon rétro typé terminal */
     --accent-hover: #ffffff;
-    --font-custom: 'Determination', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Séparation des polices pour l'approche hybride */
+    --font-pixel: 'Determination', monospace;
+    --font-reading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Réinitialisation de base */
@@ -28,18 +31,48 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-y: scroll; /* Empêche le décalage de mise en page entre les pages */
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
-    font-family: var(--font-custom);
+    font-family: var(--font-reading); /* Police ultra-lisible par défaut pour tout le texte */
     line-height: 1.6;
     padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    
+    /* Réactivation du lissage haute qualité pour le confort des yeux */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   APPLICATION DE LA POLICE PIXEL (UI & TITRES UNIQUEMENT)
+   ========================================================================== */
+.glitch-title,
+.subtitle,
+.portfolio-section h2,
+.project-card h3,
+.skill-tag,
+.project-tech span,
+.project-link,
+.btn-contact,
+.navbar a {
+    font-family: var(--font-pixel);
+    letter-spacing: 1px;
+}
+
+/* Styles spécifiques des paragraphes de lecture */
+p, .description-text, .section-content, .contact-text { 
+    font-family: var(--font-reading);
+    font-size: 15px;       
+    line-height: 1.6;      
+    letter-spacing: 0.2px;
+    color: var(--text-secondary); /* Un gris doux plus reposant que le blanc pur */
 }
 
 /* Conteneur principal */
@@ -60,8 +93,9 @@ body {
     font-weight: normal;
     letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.1);
     margin-bottom: 10px;
+    color: var(--text-primary);
 }
 
 .subtitle {
@@ -87,8 +121,7 @@ body {
 }
 
 .section-content {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* Grille de compétences */
@@ -103,7 +136,7 @@ body {
     border: 1px solid var(--border-color);
     padding: 8px 16px;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     transition: all 0.2s ease;
 }
@@ -168,10 +201,10 @@ body {
     font-size: 1.3rem;
     font-weight: normal;
     margin-bottom: 10px;
+    color: var(--text-primary);
 }
 
 .project-card p {
-    color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 20px;
     flex-grow: 1;
@@ -179,6 +212,7 @@ body {
 
 .project-tech {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 20px;
 }
@@ -223,19 +257,6 @@ body {
     margin-bottom: 15px;
 }
 
-.contact-text {
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
 .btn-contact {
     display: inline-block;
     padding: 12px 24px;
@@ -256,4 +277,4 @@ body {
 .copyright {
     font-size: 0.85rem;
     color: #404040;
-}
+    font-family: var(--font-reading);

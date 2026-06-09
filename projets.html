@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'Determination';
-            src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+            src: url('Polices/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -81,7 +81,6 @@
             background: var(--border-color);
         }
 
-        /* La classe timeline-row utilise display: contents pour s'intégrer au grid parent */
         .timeline-row { display: contents; }
 
         .year { text-align: right; padding-top: 18px; color: var(--accent-color); font-size: 14px; z-index: 2; }
@@ -120,6 +119,21 @@
             font-size: 20px;
             padding: 5px 0 25px 0;
         }
+
+        .github-link { 
+            display: inline-block; 
+            margin-top: 20px; 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 14px; 
+            border: 2px solid var(--border-color);
+            padding: 6px 14px;
+            transition: all 0.3s ease;
+        }
+        .github-link:hover { 
+            border-color: var(--accent-color); 
+            color: var(--accent-color);
+        }
     </style>
 </head>
 <body>
@@ -131,32 +145,33 @@
     </nav>
 
     <div class="container">
-        <h2 id="page-title">[03] CHRONOLOGIE DES PROJETS</h2>
+        <h2 id="page-title">CHRONOLOGIE DES PROJETS</h2>
         
         <div class="timeline-container">
             
-            <!-- Projet 1 -->
-            <div class="timeline-row" data-tags="C,C++,Python,Gestion de projet,JavaScript,Github">
+            <div class="timeline-row" data-tags="C,C++,Python,Gestion de projet,JavaScript,Github,Linux/Bash,Gestion de base de données">
                 <div class="year">2023</div>
                 <div class="dot-container"><div class="dot"></div></div>
                 <div class="project-wrapper">
                     <div class="project-card">
                         <h3>StockMeat</h3>
-                        <p>Moteur de jeu d'échecs.</p>
+                        <p>Programme pouvant jouer au jeu d'échecs à un niveau avancé.</p>
                         <div class="tech-tags">
-                            <a href="competences.html" class="tech-tag">C</a>
-                            <a href="competences.html" class="tech-tag">C++</a>
-                            <a href="competences.html" class="tech-tag">Python</a>
-                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
-                            <a href="competences.html" class="tech-tag">JavaScript</a>
-                            <a href="competences.html" class="tech-tag">Github</a>
+                            <a href="competences.html?tag=C" class="tech-tag">C</a>
+                            <a href="competences.html?tag=C++" class="tech-tag">C++</a>
+                            <a href="competences.html?tag=Python" class="tech-tag">Python</a>
+                            <a href="competences.html?tag=Gestion de projet" class="tech-tag">Gestion de projet</a>
+                            <a href="competences.html?tag=JavaScript" class="tech-tag">JavaScript</a>
+                            <a href="competences.html?tag=Linux/Bash" class="tech-tag">Linux / Bash</a>
+                            <a href="competences.html?tag=Gestion de base de données" class="tech-tag">Gestion de base de données</a>
+                            <a href="competences.html?tag=GitHub" class="tech-tag">Github</a>
                         </div>
+                        <a href="https://github.com/Le-Jy/StockMeat" target="_blank" rel="noopener noreferrer" class="github-link">Voir sur GitHub</a>
                     </div>
                 </div>
                 <div class="arrow-container">↓</div>
             </div>
 
-            <!-- Projet 2 -->
             <div class="timeline-row" data-tags="Python,Flask,JavaScript,Gestion de base de données,API,Gestion de projet">
                 <div class="year">2025</div>
                 <div class="dot-container"><div class="dot"></div></div>
@@ -165,20 +180,21 @@
                         <h3>Recommandations de séries TV</h3>
                         <p>Moteur de recherche et de recommandations personnalisé pour des séries TV.</p>
                         <div class="tech-tags">
-                            <a href="competences.html" class="tech-tag">Python</a>
-                            <a href="competences.html" class="tech-tag">Flask</a>
-                            <a href="competences.html" class="tech-tag">JavaScript</a>
-                            <a href="competences.html" class="tech-tag">Gestion de base de données</a>
-                            <a href="competences.html" class="tech-tag">API</a>
-                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
+                            <a href="competences.html?tag=Python" class="tech-tag">Python</a>
+                            <a href="competences.html?tag=Flask" class="tech-tag">Flask</a>
+                            <a href="competences.html?tag=JavaScript" class="tech-tag">JavaScript</a>
+                            <a href="competences.html?tag=Gestion de base de données" class="tech-tag">Gestion de base de données</a>
+                            <a href="competences.html?tag=SQL" class="tech-tag">SQL</a>
+                            <a href="competences.html?tag=API" class="tech-tag">API</a>
+                            <a href="competences.html?tag=Gestion de projet" class="tech-tag">Gestion de projet</a>
                         </div>
+                        <a href="https://github.com/Evan-Reynaud/SAE-S5" target="_blank" rel="noopener noreferrer" class="github-link">Voir sur GitHub</a>
                     </div>
                 </div>
                 <div class="arrow-container">↓</div>
             </div>
 
-            <!-- Projet 3 -->
-            <div class="timeline-row" data-tags="Python,Flask,JavaScript,Machine learning,Gestion de base de données,SQL,Gestion de projet">
+            <div class="timeline-row" data-tags="Python,Flask,JavaScript,Machine learning,Gestion de base de données,SQL,Gestion de projet,Github">
                 <div class="year">2026</div>
                 <div class="dot-container"><div class="dot"></div></div>
                 <div class="project-wrapper">
@@ -186,21 +202,22 @@
                         <h3>Analyse Yelp IA</h3>
                         <p>Développement d'un système d'analyse intelligente des avis Yelp via l'IA.</p>
                         <div class="tech-tags">
-                            <a href="competences.html" class="tech-tag">Python</a>
-                            <a href="competences.html" class="tech-tag">Flask</a>
-                            <a href="competences.html" class="tech-tag">JavaScript</a>
-                            <a href="competences.html" class="tech-tag">Machine learning</a>
-                            <a href="competences.html" class="tech-tag">Gestion de base de données</a>
-                            <a href="competences.html" class="tech-tag">SQL</a>
-                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
+                            <a href="competences.html?tag=Python" class="tech-tag">Python</a>
+                            <a href="competences.html?tag=Flask" class="tech-tag">Flask</a>
+                            <a href="competences.html?tag=JavaScript" class="tech-tag">JavaScript</a>
+                            <a href="competences.html?tag=Machine learning" class="tech-tag">Machine learning</a>
+                            <a href="competences.html?tag=Gestion de base de données" class="tech-tag">Gestion de base de données</a>
+                            <a href="competences.html?tag=SQL" class="tech-tag">SQL</a>
+                            <a href="competences.html?tag=Gestion de projet" class="tech-tag">Gestion de projet</a>
+                            <a href="competences.html?tag=GitHub" class="tech-tag">Github</a>
                         </div>
+                        <a href="https://github.com/Evan-Reynaud/SAE-S6" target="_blank" rel="noopener noreferrer" class="github-link">Voir sur GitHub</a>
                     </div>
                 </div>
                 <div class="arrow-container">↓</div>
             </div>
 
-            <!-- Projet 4 -->
-            <div class="timeline-row" data-tags="HTML,CSS,JavaScript,GitHub,Gestion de projet">
+            <div class="timeline-row" data-tags="HTML,CSS,JavaScript,Github,Gestion de projet,Linux/Bash">
                 <div class="year">2026</div>
                 <div class="dot-container"><div class="dot"></div></div>
                 <div class="project-wrapper">
@@ -208,18 +225,19 @@
                         <h3>Mon Site Portfolio</h3>
                         <p>Création de mon portfolio personnel hébergé sur GitHub.</p>
                         <div class="tech-tags">
-                            <a href="competences.html" class="tech-tag">HTML</a>
-                            <a href="competences.html" class="tech-tag">CSS</a>
-                            <a href="competences.html" class="tech-tag">JavaScript</a>
-                            <a href="competences.html" class="tech-tag">GitHub</a>
-                            <a href="competences.html" class="tech-tag">Gestion de projet</a>
+                            <a href="competences.html?tag=HTML" class="tech-tag">HTML</a>
+                            <a href="competences.html?tag=CSS" class="tech-tag">CSS</a>
+                            <a href="competences.html?tag=JavaScript" class="tech-tag">JavaScript</a>
+                            <a href="competences.html?tag=Linux/Bash" class="tech-tag">Linux / Bash</a>
+                            <a href="competences.html?tag=GitHub" class="tech-tag">Github</a>
+                            <a href="competences.html?tag=Gestion de projet" class="tech-tag">Gestion de projet</a>
                         </div>
+                        <a href="https://github.com/Evan-Reynaud/Evan-Reynaud.github.io" target="_blank" rel="noopener noreferrer" class="github-link">Voir sur GitHub</a>
                     </div>
                 </div>
                 <div class="arrow-container">↓</div>
             </div>
 
-            <!-- Projet 5 -->
             <div class="timeline-row">
                 <div class="year">----</div>
                 <div class="dot-container"><div class="dot"></div></div>

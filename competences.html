@@ -7,7 +7,14 @@
     <style>
         @font-face {
             font-family: 'Determination';
-            src: url('fonts/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+            src: url('Polices/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DeterminationSans';
+            src: url('Polices/DeterminationSansWebRegular-369X.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -16,11 +23,12 @@
             --bg-color: #000000; 
             --border-color: #ffffff; 
             --text-primary: #ffffff; 
-            --text-secondary: #a3a3a3; 
+            --text-secondary: #cccccc;
             --accent-color: #fff200; 
+            
             --font-custom: 'Determination', monospace;
+            --font-titles: 'DeterminationSans', sans-serif;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
@@ -31,6 +39,11 @@
             display: flex; 
             justify-content: center; 
             min-height: 100vh; 
+
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: none;
+            font-smooth: never;
+            text-rendering: optimizeSpeed;
         }
 
         .container { max-width: 800px; width: 100%; padding: 20px; }
@@ -61,11 +74,18 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        h2 { margin-bottom: 40px; font-size: 24px; color: var(--text-primary); }
+        h2 { 
+            font-family: var(--font-titles); 
+            margin-bottom: 40px; 
+            font-size: 26px; 
+            color: var(--text-primary); 
+            text-transform: uppercase;
+        }
 
         .category-section { margin-bottom: 40px; }
         
         .category-title { 
+            font-family: var(--font-titles); 
             font-size: 18px; 
             margin-bottom: 25px; 
             color: var(--text-primary); 
@@ -73,12 +93,25 @@
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color);
             display: inline-block;
+            text-transform: uppercase;
         }
 
         .skills-grid { 
             display: flex; 
-            flex-wrap: wrap; 
+            flex-direction: column; 
             gap: 15px; 
+        }
+
+        .skill-row {
+            display: flex;
+            align-items: center; 
+            gap: 20px;
+        }
+
+        .skill-btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .skill-btn {
@@ -88,15 +121,54 @@
             color: var(--text-primary);
             padding: 12px 20px;
             font-family: var(--font-custom);
-            font-size: 14px;
+            font-size: 16px; 
+            text-transform: uppercase;
             text-decoration: none;
             transition: all 0.2s ease;
             cursor: pointer;
+            position: relative; 
+            min-width: 220px;   
+            text-align: center;
         }
 
         .skill-btn:hover {
             border-color: var(--accent-color);
             color: var(--accent-color);
+        }
+        .skill-desc {
+            font-family: var(--font-custom);
+            color: var(--text-secondary);
+            font-size: 16px; 
+            line-height: 1.5;
+            text-transform: none;
+        }
+
+        .skill-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background-color: var(--bg-color);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 6px 12px;
+            font-family: var(--font-custom);
+            font-size: 16px; 
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 100;
+            pointer-events: none;
+            
+            text-transform: none;
+        }
+
+        .skill-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
         }
     </style>
 </head>
@@ -110,39 +182,93 @@
 
     <div class="container">
         <section>
-            <h2>[02] MES COMPÉTENCES</h2>
+            <h2>MES COMPÉTENCES</h2>
             
             <div class="category-section">
                 <div class="category-title">LANGAGES</div>
                 <div class="skills-grid">
-                    <a href="projets.html?tag=Python" class="skill-btn">Python</a>
-                    <a href="projets.html?tag=C" class="skill-btn">C</a>
-                    <a href="projets.html?tag=C++" class="skill-btn">C++</a>
-                    <a href="projets.html?tag=Rust" class="skill-btn">Rust</a>
-                    <a href="projets.html?tag=Lua" class="skill-btn">Lua</a>
-                    <a href="projets.html?tag=Assembleur" class="skill-btn">Assembleur</a>
-                    <a href="projets.html?tag=JavaScript" class="skill-btn">JavaScript (ES6)</a>
-                    <a href="projets.html?tag=Processing" class="skill-btn">Processing</a>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Python" class="skill-btn" data-tooltip="Le Python est un langage de programmation interprété et multiparadigme.">Python</a>
+                        <span class="skill-desc">Depuis dix années, j'utilise le Python régulièrement autant dans le cadre scolaire que personnel.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=C" class="skill-btn" data-tooltip="Le C est un langage de programmation impératif, généraliste et de bas niveau.">C</a>
+                        <span class="skill-desc">Le parcours du cycle ingénieur de l'EPITA m'a poussé à rapidement apprendre à maîtriser le C et à l'utiliser pour résoudre divers problèmes en temps fortement limité.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=C++" class="skill-btn" data-tooltip="Le C++ est un langage de programmation compilé orienté objet de haut niveau.">C++</a>
+                        <span class="skill-desc">J'ai été initié au C++ durant mes études et l'ai utilisé en complément du C pour des travaux plus complexes.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Lua" class="skill-btn" data-tooltip="Le Lua est un langage de programmation libre et embeddable.">Lua</a>
+                        <span class="skill-desc">J'ai appris le Lua seul dans mon temps libre dans le but de l'utiliser pour créer des petits jeux.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Rust" class="skill-btn" data-tooltip="Le Rust est un langage de programmation compilé multi-paradigme.">Rust</a>
+                        <span class="skill-desc">Lors de la piscine de l'EPITA, j'ai appris les bases du Rust et l'ai utilisé pour créer des programmes divers.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=JavaScript" class="skill-btn" data-tooltip="Le JavaScript est un langage de programmation interprété, souvent utilisé pour le développement web.">JavaScript (ES6)</a>
+                        <span class="skill-desc">J'ai acquis une solide maîtrise du JavaScript et de ses concepts avancés en créant plusieurs projets web du collège au BUT.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Assembleur" class="skill-btn" data-tooltip="L'Assembleur est un langage de programmation de bas niveau.">Assembleur</a>
+                        <span class="skill-desc">En classe préparatoire intégrée, j'ai rattrapé deux années de cours d'assembleur en quelques mois et ai developpé une compréhension instinctive du langage.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Processing" class="skill-btn" data-tooltip="Le Processing est un langage de programmation axé sur la création graphique.">Processing</a>
+                        <span class="skill-desc">J'ai beaucoup utilisé Processing depuis le collège pour créer des visualisations intéractives et des jeux.</span>
+                    </div>
                 </div>
             </div>
             
             <div class="category-section">
                 <div class="category-title">WEB & DÉVELOPPEMENT</div>
                 <div class="skills-grid">
-                    <a href="projets.html?tag=HTML" class="skill-btn">HTML</a>
-                    <a href="projets.html?tag=CSS" class="skill-btn">CSS</a>
-                    <a href="projets.html?tag=API" class="skill-btn">API</a>
+                    <div class="skill-row">
+                        <div class="skill-btn-stack">
+                            <a href="projets.html?tag=HTML" class="skill-btn" data-tooltip="Le HTML est un langage de balisage utilisé pour écrire les pages web.">HTML</a>
+                            <a href="projets.html?tag=CSS" class="skill-btn" data-tooltip="Le CSS est un langage de style utilisé pour designer les pages web.">CSS</a>
+                        </div>
+                        <span class="skill-desc">La création de pages web fonctionnelles et accessibles lors de divers projets au cours de mes études ainsi que dans un cadre professionnel lors de mon stage m'ont permis d'acquérir de solides compétences en HTML et en CSS.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=API" class="skill-btn" data-tooltip="Une API est une interface logicielle qui permet de connecter des logiciels ou services.">API</a>
+                        <span class="skill-desc">Durant mon BUT, j'ai eu l'opportunité d'apprendre à réaliser une API à partir de zéro et à l'adapter aux besoins du projet.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Flask" class="skill-btn" data-tooltip="Flask est un framework Python pour le développement web.">Flask</a>
+                        <span class="skill-desc">Dans le but de développer des applications web en Python, j'ai appris me servir de Flask.</span>
+                    </div>
                 </div>
             </div>
             
             <div class="category-section">
                 <div class="category-title">DATA, IA & OUTILS</div>
                 <div class="skills-grid">
-                    <a href="projets.html?tag=SQL" class="skill-btn">SQL</a>
-                    <a href="projets.html?tag=Base de données" class="skill-btn">Gestion de base de données</a>
-                    <a href="projets.html?tag=Machine learning" class="skill-btn">Machine learning</a>
-                    <a href="projets.html?tag=Github" class="skill-btn">Github</a>
-                    <a href="projets.html?tag=Gestion de projet" class="skill-btn">Gestion de projet</a>
+                    <div class="skill-row">
+                        <div class="skill-btn-stack">
+                            <a href="projets.html?tag=SQL" class="skill-btn" data-tooltip="Langage de requêtage pour interagir avec les données.">SQL</a>
+                            <a href="projets.html?tag=Gestion de base de données" class="skill-btn" data-tooltip="Modélisation, architecture et administration des SGBD.">Gestion de base de données</a>
+                        </div>
+                        <span class="skill-desc">Lors de mon BUT, j'ai eu l'opportunité de développer des compétences en conception et administration de schémas relationnels robustes et en écriture de requêtes conservant la cohérence et l'intégrité des informations.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Machine learning" class="skill-btn" data-tooltip="Technique d'apprentissage automatique utilisées pour analyser et prédire à partir de données.">Machine learning</a>
+                        <span class="skill-desc">Après en avoir fait le sujet de mon oral du bac, j'ai eu l'occasion de développer des modèles d'apprentissage automatique pour des projets d'analyse de données.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Linux/Bash" class="skill-btn" data-tooltip="Système d'exploitation et scripting en ligne de commande.">Linux / Bash</a>
+                        <span class="skill-desc">Navigation fluide dans le terminal, automatisation de tâches répétitives via des scripts Bash et gestion d'environnements systèmes UNIX.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Github" class="skill-btn" data-tooltip="Plateforme de gestion de projetset de collaboration pour développeurs.">Github</a>
+                        <span class="skill-desc">Je me suis régulièrement servi de Github pour gérer mes projets et collaborer avec mes camarades de projets.</span>
+                    </div>
+                    <div class="skill-row">
+                        <a href="projets.html?tag=Gestion de projet" class="skill-btn" data-tooltip="Méthodes d'organisation et de travail en groupe.">Gestion de projet</a>
+                        <span class="skill-desc">De nombreux travaux de groupes et des communications parfois difficiles m'ont permis de développer des compétences en gestion de projet.</span>
+                    </div>
                 </div>
             </div>
         </section>
