@@ -439,11 +439,30 @@ p.description {
     text-align: left; /* Assure que le texte reste aligné à gauche */
 }
 
-/* Boutons de contact */
-.btn-retro {
-    display: block; width: 100%; background-color: var(--bg-color); border: 2px solid var(--border-color); color: var(--text-primary); padding: 25px; margin-bottom: 25px; text-decoration: none; font-size: 20px; transition: all 0.2s ease; text-align: left;
+.container-narrow {
+    max-width: 600px;      /* Largeur maximale souhaitée */
+    margin: 0 auto;        /* Centre le conteneur dans la page */
+    text-align: center;    /* Centre le contenu (titres et boutons) */
+    padding: 20px;
 }
-.btn-retro:hover { border-color: var(--accent-color); color: var(--accent-color); cursor: pointer; }
+
+/* Ajustement des boutons pour qu'ils soient moins massifs */
+.btn-retro {
+    display: inline-block; /* Permet au bouton de ne prendre que la largeur nécessaire */
+    min-width: 300px;      /* Largeur minimale pour garder une belle forme */
+    padding: 15px 20px;    /* Réduit le padding par rapport au précédent */
+    margin: 10px auto;     /* Espacement vertical */
+    font-size: 16px;       /* Taille de police réduite */
+    text-decoration: none;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.btn-retro:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
 
 /* ==========================================================================
    7. RESPONSIVITÉ COMMUNE (ÉCRANS REDUITS / MOBILE)
