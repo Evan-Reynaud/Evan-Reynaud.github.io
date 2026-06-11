@@ -4,173 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evan Reynaud | Compétences</title>
-    <style>
-        @font-face {
-            font-family: 'Determination';
-            src: url('Polices/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'DeterminationSans';
-            src: url('Polices/DeterminationSansWebRegular-369X.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        :root { 
-            --bg-color: #000000; 
-            --border-color: #ffffff; 
-            --text-primary: #ffffff; 
-            --text-secondary: #cccccc;
-            --accent-color: #fff200; 
-            
-            --font-custom: 'Determination', monospace;
-            --font-titles: 'DeterminationSans', sans-serif;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-primary); 
-            font-family: var(--font-custom); 
-            padding-top: 120px; 
-            display: flex; 
-            justify-content: center; 
-            min-height: 100vh; 
-
-            -webkit-font-smoothing: none;
-            -moz-osx-font-smoothing: none;
-            font-smooth: never;
-            text-rendering: optimizeSpeed;
-        }
-
-        .container { max-width: 800px; width: 100%; padding: 20px; }
-
-        .navbar { 
-            position: fixed; top: 0; left: 0; width: 100%; 
-            background: rgba(0, 0, 0, 0.9); 
-            border-bottom: 2px solid var(--border-color); 
-            padding: 25px; 
-            display: flex; justify-content: center; gap: 40px; 
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-        
-        .navbar a { 
-            color: var(--text-secondary); 
-            text-decoration: none; 
-            font-size: 16px; 
-            text-transform: uppercase;
-            font-family: var(--font-custom);
-            transition: all 0.3s ease;
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .navbar a:hover { 
-            color: var(--accent-color); 
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        h2 { 
-            font-family: var(--font-titles); 
-            margin-bottom: 40px; 
-            font-size: 26px; 
-            color: var(--text-primary); 
-            text-transform: uppercase;
-        }
-
-        .category-section { margin-bottom: 40px; }
-        
-        .category-title { 
-            font-family: var(--font-titles); 
-            font-size: 18px; 
-            margin-bottom: 25px; 
-            color: var(--text-primary); 
-            letter-spacing: 1px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-color);
-            display: inline-block;
-            text-transform: uppercase;
-        }
-
-        .skills-grid { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-        }
-
-        .skill-row {
-            display: flex;
-            align-items: center; 
-            gap: 20px;
-        }
-
-        .skill-btn-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .skill-btn {
-            display: inline-block;
-            background-color: var(--bg-color);
-            border: 2px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 12px 20px;
-            font-family: var(--font-custom);
-            font-size: 16px; 
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            position: relative; 
-            min-width: 220px;   
-            text-align: center;
-        }
-
-        .skill-btn:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-        }
-        .skill-desc {
-            font-family: var(--font-custom);
-            color: var(--text-secondary);
-            font-size: 16px; 
-            line-height: 1.5;
-            text-transform: none;
-        }
-
-        .skill-btn::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 130%;
-            left: 50%;
-            transform: translateX(-50%) translateY(5px);
-            background-color: var(--bg-color);
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 6px 12px;
-            font-family: var(--font-custom);
-            font-size: 16px; 
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-            z-index: 100;
-            pointer-events: none;
-            
-            text-transform: none;
-        }
-
-        .skill-btn:hover::after {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -179,11 +13,9 @@
         <a href="projets.html">Projets</a>
         <a href="contact.html">Contact</a>
     </nav>
-
     <div class="container">
         <section>
             <h2>MES COMPÉTENCES</h2>
-            
             <div class="category-section">
                 <div class="category-title">LANGAGES</div>
                 <div class="skills-grid">
@@ -196,15 +28,15 @@
                         <span class="skill-desc">Le parcours du cycle ingénieur de l'EPITA m'a poussé à rapidement apprendre à maîtriser le C et à l'utiliser pour résoudre divers problèmes en temps fortement limité.</span>
                     </div>
                     <div class="skill-row">
-                        <a href="projets.html?tag=C++" class="skill-btn" data-tooltip="Le C++ est un langage de programmation compilé orienté objet de haut niveau.">C++</a>
+                        <a href="projets.html?tag=C++" class="skill-btn" data-no-project="true" data-tooltip="Le C++ est un langage de programmation compilé orienté objet de haut niveau.">C++</a>
                         <span class="skill-desc">J'ai été initié au C++ durant mes études et l'ai utilisé en complément du C pour des travaux plus complexes.</span>
                     </div>
                     <div class="skill-row">
-                        <a href="projets.html?tag=Lua" class="skill-btn" data-tooltip="Le Lua est un langage de programmation libre et embeddable.">Lua</a>
+                        <a href="projets.html?tag=Lua" class="skill-btn" data-no-project="true" data-tooltip="Le Lua est un langage de programmation libre et embeddable.">Lua</a>
                         <span class="skill-desc">J'ai appris le Lua seul dans mon temps libre dans le but de l'utiliser pour créer des petits jeux.</span>
                     </div>
                     <div class="skill-row">
-                        <a href="projets.html?tag=Rust" class="skill-btn" data-tooltip="Le Rust est un langage de programmation compilé multi-paradigme.">Rust</a>
+                        <a href="projets.html?tag=Rust" class="skill-btn" data-no-project="true" data-tooltip="Le Rust est un langage de programmation compilé multi-paradigme.">Rust</a>
                         <span class="skill-desc">Lors de la piscine de l'EPITA, j'ai appris les bases du Rust et l'ai utilisé pour créer des programmes divers.</span>
                     </div>
                     <div class="skill-row">
@@ -212,16 +44,15 @@
                         <span class="skill-desc">J'ai acquis une solide maîtrise du JavaScript et de ses concepts avancés en créant plusieurs projets web du collège au BUT.</span>
                     </div>
                     <div class="skill-row">
-                        <a href="projets.html?tag=Assembleur" class="skill-btn" data-tooltip="L'Assembleur est un langage de programmation de bas niveau.">Assembleur</a>
+                        <a href="projets.html?tag=Assembleur" class="skill-btn" data-no-project="true" data-tooltip="L'Assembleur est un langage de programmation de bas niveau.">Assembleur</a>
                         <span class="skill-desc">En classe préparatoire intégrée, j'ai rattrapé deux années de cours d'assembleur en quelques mois et ai developpé une compréhension instinctive du langage.</span>
                     </div>
                     <div class="skill-row">
-                        <a href="projets.html?tag=Processing" class="skill-btn" data-tooltip="Le Processing est un langage de programmation axé sur la création graphique.">Processing</a>
+                        <a href="projets.html?tag=Processing" class="skill-btn" data-no-project="true" data-tooltip="Le Processing est un langage de programmation axé sur la création graphique.">Processing</a>
                         <span class="skill-desc">J'ai beaucoup utilisé Processing depuis le collège pour créer des visualisations intéractives et des jeux.</span>
                     </div>
                 </div>
             </div>
-            
             <div class="category-section">
                 <div class="category-title">WEB & DÉVELOPPEMENT</div>
                 <div class="skills-grid">
@@ -242,7 +73,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="category-section">
                 <div class="category-title">DATA, IA & OUTILS</div>
                 <div class="skills-grid">
@@ -259,7 +89,7 @@
                     </div>
                     <div class="skill-row">
                         <a href="projets.html?tag=Linux/Bash" class="skill-btn" data-tooltip="Système d'exploitation et scripting en ligne de commande.">Linux / Bash</a>
-                        <span class="skill-desc">Navigation fluide dans le terminal, automatisation de tâches répétitives via des scripts Bash et gestion d'environnements systèmes UNIX.</span>
+                        <span class="skill-desc">Lors de mon parcours, j'ai développé une navigation fluide dans le terminal, automatisé des tâches répétitives via des scripts Bash et géré des environnements systèmes UNIX.</span>
                     </div>
                     <div class="skill-row">
                         <a href="projets.html?tag=Github" class="skill-btn" data-tooltip="Plateforme de gestion de projetset de collaboration pour développeurs.">Github</a>
@@ -273,5 +103,37 @@
             </div>
         </section>
     </div>
+    <div class="modal-overlay" id="customModal">
+        <div class="modal-box">
+            <p class="modal-text" id="modalMessage">Il n'y a pas encore de projet associé à cette compétence.</p>
+            <button class="modal-close-btn" id="closeModalBtn">Fermer</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('customModal');
+            const modalMessage = document.getElementById('modalMessage');
+            const closeBtn = document.getElementById('closeModalBtn');
+            const skillButtons = document.querySelectorAll('.skill-btn');
+            skillButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    if (button.getAttribute('data-no-project') === 'true') {
+                        e.preventDefault(); 
+                        const skillName = button.textContent.trim();
+                        modalMessage.innerHTML = `* Aucun projet n'est disponible pour <span style="color: var(--accent-color);">${skillName}</span> pour le moment.<br><br>Revenez plus tard !`;
+                        modal.classList.add('active');
+                    }
+                });
+            });
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

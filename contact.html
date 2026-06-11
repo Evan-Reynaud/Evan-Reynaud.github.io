@@ -4,91 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evan Reynaud | Contact</title>
-    <style>
-        /* Force la présence de la barre de défilement pour aligner parfaitement le centre */
-        html {
-            overflow-y: scroll;
-        }
-
-        @font-face {
-            font-family: 'Determination';
-            src: url('Polices/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        :root { 
-            --bg-color: #000000; 
-            --border-color: #ffffff; 
-            --text-primary: #ffffff; 
-            --text-secondary: #a3a3a3; 
-            --accent-color: #fff200; 
-            --font-custom: 'Determination', monospace;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-primary); 
-            font-family: var(--font-custom); 
-            padding-top: 120px; 
-            display: flex; 
-            justify-content: center; 
-            min-height: 100vh; 
-        }
-
-        .container { max-width: 800px; width: 100%; padding: 20px; }
-
-        .navbar { 
-            position: fixed; top: 0; left: 0; width: 100%; 
-            background: rgba(0, 0, 0, 0.9); 
-            border-bottom: 2px solid var(--border-color); 
-            padding: 25px; 
-            display: flex; justify-content: center; gap: 40px; 
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-        
-        .navbar a { 
-            color: var(--text-secondary); 
-            text-decoration: none; 
-            font-size: 16px; 
-            text-transform: uppercase;
-            font-family: var(--font-custom);
-            transition: all 0.3s ease;
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .navbar a:hover { 
-            color: var(--accent-color); 
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        h2 { margin-bottom: 40px; font-size: 24px; color: var(--text-primary); }
-
-        .btn-retro {
-            display: block;
-            width: 100%;
-            background-color: var(--bg-color);
-            border: 2px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 25px;
-            margin-bottom: 25px;
-            text-decoration: none;
-            font-family: var(--font-custom);
-            font-size: 20px;
-            transition: all 0.2s ease;
-            text-align: left;
-        }
-
-        .btn-retro:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -97,23 +13,11 @@
         <a href="projets.html">Projets</a>
         <a href="contact.html">Contact</a>
     </nav>
-
-    <div class="container">
-        <section>
-            <h2>ME CONTACTER</h2>
-            
-            <a href="mailto:mon.email@ex.com" class="btn-retro">
-                evan.reynaud42@gmail.com
-            </a>
-            
-            <a href="https://www.linkedin.com/in/profil" target="_blank" class="btn-retro">
-                linkedin.com/in/profil
-            </a>
-            
-            <a href="tel:+33643045651" class="btn-retro">
-                +33 6 43 04 56 51
-            </a>
-        </section>
+    <div class="container container-narrow">
+        <h2 class="contact-header">ME CONTACTER</h2>
+        <a href="mailto:evan.reynaud42@gmail.com" class="btn-retro">evan.reynaud42@gmail.com</a>
+        <a href="https://www.linkedin.com/in/evan-reynaud-52baa9415" target="_blank" class="btn-retro">linkedin.com/in/evan-reynaud-52baa9415</a>
+        <a href="tel:+33643045651" class="btn-retro">+33 06 43 04 56 51</a>
     </div>
 </body>
 </html>
