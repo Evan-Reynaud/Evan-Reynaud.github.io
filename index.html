@@ -68,8 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const title = button.textContent.trim();
             const text = button.getAttribute('data-tooltip');
-            
-            // Vérification de sécurité avant d'injecter
             if (modalMessage) {
                 modalMessage.innerHTML = `<strong>${title}</strong><br><br>${text}`;
                 modal.classList.add('active');
